@@ -9,9 +9,9 @@ class Users {
    * @returns 
    */
    login(username,password) {
-    var Sql = `select id,psw from users where name='${username}'`;
+    var Sql = `select id,name,psw from users where name='${username}'`;
 
-    console.log('addsql', Sql)
+    console.log('loginsql', Sql)
     // var addSqlParams = [password];
     return db.query(Sql)
   }

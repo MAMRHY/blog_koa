@@ -34,7 +34,8 @@ router.post('/login',async (ctx)=>{
       if(data[0].psw === password){
          ctx.body = {
             code: 200,
-            id: data[0].id
+            id: data[0].id,
+            name: data[0].name
          };
       }else{
          ctx.body = {
