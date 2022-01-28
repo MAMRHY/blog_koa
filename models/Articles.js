@@ -63,6 +63,16 @@ class Articles{
             tags
         }
     }
+
+
+    // ----移动端接口-----
+
+    async getList(classifyId){
+        const sql = `select * from articles where category_id = ${classifyId}`
+        return db.query(sql)
+    }
+
+
 }
 
 module.exports = Articles

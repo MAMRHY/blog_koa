@@ -91,4 +91,29 @@ router.get('/tagsClassify',async (ctx)=>{
 })
 
 
+// -----移动端接口----
+
+// 根据分类查文章列表
+router.get('/list', async (ctx)=>{
+    let classifyId = ctx.query.classifyId
+    let res = await cArticles.getList(classifyId)
+    console.log(res)
+    if(res){
+        ctx.body = {
+            code : 200,
+            data: res,
+            message: 'success'
+        }
+    }else{
+        ctx.body = {
+            code : 400,
+            message: 'error'
+        }
+    }
+})
+
+
+
+
+
 module.exports = router;

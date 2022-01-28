@@ -37,6 +37,14 @@ class Articles{
         return res
     }
 
+
+    // -----移动端接口----
+
+    async getList(classifyId){
+        let res = await mArticles.getList(classifyId)
+        return res
+    }
+
 }
 
 module.exports = Articles
