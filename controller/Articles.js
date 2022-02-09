@@ -45,6 +45,11 @@ class Articles{
         return res
     }
 
+    async getArticleInfos(id){
+        let res = await mArticles.getArticlesInfos(id)
+        return res
+    }
+
 }
 
 module.exports = Articles

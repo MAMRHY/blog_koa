@@ -1,6 +1,7 @@
 const Base = require('./Base')
 const db = Base.getInstance()
 const moment = require('moment')
+moment.locale('zh-cn')
 
 class Articles{
     async getArticles( page, pageSize){
@@ -18,6 +19,7 @@ class Articles{
         return {res:db.query(Sql),total:total} 
     }
 
+// TODO 添加文章需要带上用户id,要加上，字段user_id
     //添加（编辑）文章
     async addArticles(val){
         let tag_name_list = val.selectTagsName.toString()
@@ -70,6 +72,19 @@ class Articles{
     async getList(classifyId){
         const sql = `select * from articles where category_id = ${classifyId}`
         return db.query(sql)
+    }
+
+    async getArticlesInfos(id){
+        const sql = `select * from articles where id =${id}`
+        // 根据用户id查用户名
+        let res = await db.query(sql)
+        const uid = res[0].user_id
+
+        const sql1 = `select name from users where id =${uid}`
+        let res1 = await db.query(sql1)
+        
+        return {...res[0],name: res1[0].name};
+
     }
 
 

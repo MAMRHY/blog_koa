@@ -113,6 +113,24 @@ router.get('/list', async (ctx)=>{
 })
 
 
+//查询文章
+router.get('/infos',async(ctx)=>{
+    let id = ctx.query.id
+    let res  = await cArticles.getArticleInfos(id)
+    if(res){
+        ctx.body = {
+            code: 200,
+            data: res
+        }
+    }else{
+        ctx.body = {
+            code: 400,
+            message: 'error'
+        }
+    }
+
+})
+
 
 
 
