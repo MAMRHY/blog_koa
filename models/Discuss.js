@@ -22,7 +22,7 @@ class Discuss{
     // 根据文章id获取评论列表
     getDiscussList(id){
 
-        const sql = 'select * from discuss'
+        const sql = `select * from discuss where articleid=${id}`
         return db.query(sql)
 
     }
