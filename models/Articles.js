@@ -19,7 +19,7 @@ class Articles{
         return {res:db.query(Sql),total:total} 
     }
 
-// TODO 添加文章需要带上用户id,要加上，字段user_id
+
     //添加（编辑）文章
     async addArticles(val){
         let tag_name_list = val.selectTagsName.toString()
