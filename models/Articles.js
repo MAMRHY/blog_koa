@@ -29,7 +29,7 @@ class Articles{
         let sql,data;
         if(val.id){//编辑
             sql = 'UPDATE articles SET title = ?, html_content = ?, md_content = ?, category_id = ?, category_name = ?, tag_list = ?,tag_name_list = ?, add_time = ? WHERE id = ?'
-            data = [val.title, val.content, val.value,val.classifyid, val.classifyName, tag_list, tag_name_list, add_time];
+            data = [val.title, val.content, val.value,val.classifyid, val.classifyName, tag_list, tag_name_list, add_time, val.id];
         }else{//添加
             // let sql = `insert into articles values('${val.title}','${val.html}','${val.value}',${val.classifyid},'${val.classifyName}','${tag_list}','${tag_name_list}')`
             sql = 'INSERT INTO articles(title, html_content,md_content,category_id,category_name,tag_list,tag_name_list, add_time,user_id ) VALUES (?,?,?,?,?,?,?,?,?)'
